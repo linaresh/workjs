@@ -1,11 +1,25 @@
-const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?",0);
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","0");
 
-const personalMovieBD ={};
+const personalMovieBD ={
+  movies:numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
+};
 
-personalMovieBD.movies = numberOfFilms;
-personalMovieBD.movies = {};
-personalMovieBD.actors = {};
-personalMovieBD.genres = [];
-personalMovieBD.privat = false;
+let i = 0;
+while( i < numberOfFilms){
+  let answer1 = prompt("Какой помледний фильм вы посмотрели?",""),
+      answer2 = prompt("какую оценку поставити?","");
 
-alert(personalMovieBD);
+      if ((answer1 === "") || (answer1 === null) || (answer1.length > 50)) {
+        continue;
+      }
+      personalMovieBD.movies[answer1] = answer2;
+      i += 1;
+}
+
+console.log(personalMovieBD);
+
+
